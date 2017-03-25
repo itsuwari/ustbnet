@@ -35,4 +35,10 @@ try:
     print("Got V6")
 except TimeoutError:
     v6 = ''
-login('replace with your student id', 'your password', v6)
+while True:
+    try:
+        login('Your ID', 'Your password')
+        sleep(3)
+    except:
+        sleep(1)
+        continue
