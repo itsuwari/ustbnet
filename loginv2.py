@@ -33,7 +33,7 @@ def getv6():
 try:
     v6 = getv6()
     print("Got V6")
-except TimeoutError:
+except:
     v6 = ''
 while True:
     try:
