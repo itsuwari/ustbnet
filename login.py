@@ -19,19 +19,18 @@ def login(username, passwd, v6):
     return res.getcode()
 
 
-# print(req)
 def getv6():
-    url = 'http://[2001:da8:ad:3213::3]:9002/v6'
-    req = urllib.request.Request(url)
-    res = urllib.request.urlopen(req).read()
-    address = str(res)
-    start = int(address.find('value=')) + 7
-    end = int(address.find('></FORM>')) - 1
-    address = address[start:end]
-    return address
+        import socket
+        url = 'http://cippv6.ustb.edu.cn/get_ip.php'
+        req = urllib.request.Request(url)
+        res = urllib.request.urlopen(req).read()
+        address = str(res)
+        address = address[15:-11]
+        print(address)
+        return address
 
 try:
     v6 = getv6()
 except TimeoutError:
     v6 = ''
-login('replace with your student id', 'your password', v6)
+login('account', 'password', v6)
