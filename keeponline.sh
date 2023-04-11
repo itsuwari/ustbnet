@@ -1,6 +1,6 @@
 while true
 do
-	if ping6 2a11:: -c1
+	if timeout 0.4s ping6 2a11:: -c1
 	then 
 		echo "Connected"
 	else
