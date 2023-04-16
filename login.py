@@ -8,13 +8,18 @@ def login(username, passwd, v6):
         'savePWD': 'on',
         'v6ip': v6,
         'DDDDD': username,
-        'upass': passwd
+        'upass': passwd,
+        'callback': 'dr1004',
+        'R1': 0,
+        'R2': 0,
+        'R3': 0,
+        'R6': 0,
+        'para': 00,
+        'terminal_type': 1
     }
 
-    post = urllib.parse.urlencode(post_t)
-    post = post.encode('utf-8')
-    url = 'http://202.204.48.66/v6'
-    req = urllib.request.Request(url, data=post)
+    url = 'http://202.204.48.66/drcom/login?' + urllib.parse.urlencode(post_t)
+    req = urllib.request.Request(url)
     res = urllib.request.urlopen(req)
     return res.getcode()
 
